@@ -1,4 +1,4 @@
-﻿using EshopPattern.Entities;
+﻿using EshopPattern.Commands;
 
 namespace EshopPattern.Handlers;
 
@@ -7,9 +7,7 @@ namespace EshopPattern.Handlers;
 /// </summary>
 class OrderHandler : OrderHandlerBase
 {
-    public override void Handle(Order order)
+    public OrderHandler() : base(new ProcessOrderCommand())
     {
-        Console.WriteLine($"Начало обработки заказа {order.ProductName}.");
-        base.Handle(order);
     }
 }

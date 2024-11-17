@@ -1,5 +1,6 @@
 ﻿using EshopPattern.Entities;
-using EshopPattern.Handlers;
+using EshopPattern.Exceptions;
+using EshopPattern.Services;
 
 namespace EshopPattern.Commands;
 
@@ -8,17 +9,22 @@ namespace EshopPattern.Commands;
 /// </summary>
 class ProcessStockCommand : ICommand
 {
-    private readonly IOrderHandler _orderHandler;
-    private readonly Order _order;
-
-    public ProcessStockCommand(IOrderHandler orderHandler, Order order)
+    public void Execute(Order order)
     {
-        _orderHandler = orderHandler;
-        _order = order;
-    }
+        for (int i = 0; i < order.Quantity; i++)
+        {
+            var item = Storage.GetItem(order.ProductName);
 
-    public void Execute()
-    {
-        _orderHandler.Handle(_order);
+            if (item == null)
+            {
+                throw new OutOfStockException();
+            }
+
+            order.TotalPrice += item.Price;
+        }
+
+        order.IsStockChecked = true;
+        Console.WriteLine(
+            $"Проверка наличия товара {order.ProductName} пройдена. Количество: {order.Quantity}. Полная стоимость: {order.TotalPrice}");
     }
 }

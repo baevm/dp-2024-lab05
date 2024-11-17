@@ -1,6 +1,8 @@
-﻿namespace EshopPattern.Commands;
+﻿using EshopPattern.Entities;
 
-interface ICommand
+namespace EshopPattern.Commands;
+
+public interface ICommand
 {
-    void Execute();
+    void Execute(Order order);
 }

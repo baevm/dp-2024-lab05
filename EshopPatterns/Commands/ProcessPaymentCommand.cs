@@ -1,24 +1,27 @@
 ﻿using EshopPattern.Entities;
-using EshopPattern.Handlers;
+using EshopPattern.Exceptions;
 
 namespace EshopPattern.Commands;
 
 /// <summary>
 /// Команда оплаты заказа
 /// </summary>
-public class ProcessPaymentCommand
+public class ProcessPaymentCommand : ICommand
 {
-    private readonly IOrderHandler _orderHandler;
-    private readonly Order _order;
-
-    public ProcessPaymentCommand(IOrderHandler orderHandler, Order order)
+    public void Execute(Order order)
     {
-        _orderHandler = orderHandler;
-        _order = order;
+        if (!ProcessPayment(order.TotalPrice))
+        {
+            throw new PaymentProcessingException();
+        }
+
+        order.IsPaymentProcessed = true;
+        Console.WriteLine($"Заказ {order.ProductName} был успешно оплачен. Полная стоимость: {order.TotalPrice}");
     }
 
-    public void Execute()
+    private bool ProcessPayment(decimal totalAmount)
     {
-        _orderHandler.Handle(_order);
+        // todo: добавить рандом
+        return true;
     }
 }

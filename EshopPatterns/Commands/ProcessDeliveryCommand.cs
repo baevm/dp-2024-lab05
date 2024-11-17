@@ -1,24 +1,29 @@
 ﻿using EshopPattern.Entities;
-using EshopPattern.Handlers;
+using EshopPattern.Exceptions;
 
 namespace EshopPattern.Commands;
 
 /// <summary>
 /// Команда доставки заказа
 /// </summary>
-public class ProcessDeliveryCommand
+public class ProcessDeliveryCommand : ICommand
 {
-    private readonly IOrderHandler _orderHandler;
-    private readonly Order _order;
-
-    public ProcessDeliveryCommand(IOrderHandler orderHandler, Order order)
+    public void Execute(Order order)
     {
-        _orderHandler = orderHandler;
-        _order = order;
+        var isDelivered = Deliver(order);
+
+        if (!isDelivered)
+        {
+            throw new DeliveryException();
+        }
+
+        order.IsDelivered = true;
+        Console.WriteLine($"Заказ {order.ProductName} был доставлен");
     }
 
-    public void Execute()
+    private bool Deliver(Order order)
     {
-        _orderHandler.Handle(_order);
+        // todo: добавить ранд
+        return true;
     }
 }

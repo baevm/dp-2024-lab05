@@ -1,5 +1,4 @@
-﻿using EshopPattern.Commands;
-using EshopPattern.Entities;
+﻿using EshopPattern.Entities;
 using EshopPattern.Handlers;
 
 namespace EshopPattern;
@@ -22,8 +21,8 @@ internal class Program
 
         try
         {
-            var processOrderCommand = new ProcessOrderCommand(orderHandler, order);
-            processOrderCommand.Execute();
+            orderHandler.Handle(order);
+            Console.WriteLine(order);
         }
         catch (Exception e)
         {

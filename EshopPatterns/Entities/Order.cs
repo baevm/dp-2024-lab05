@@ -40,4 +40,10 @@ public class Order
         ProductName = productName;
         Quantity = quantity;
     }
+
+    public override string ToString()
+    {
+        return
+            $"Название: {ProductName}. Количество: {Quantity}. Стоимость заказа: {TotalPrice}. На складе: {IsStockChecked}. Оплата: {IsPaymentProcessed}. Доставка: {IsDelivered}";
+    }
 }
