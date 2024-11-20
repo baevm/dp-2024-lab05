@@ -21,7 +21,6 @@ public class ProcessPaymentCommand : ICommand
 
     private bool ProcessPayment(decimal totalAmount)
     {
-        // todo: добавить рандом
         return true;
     }
 }

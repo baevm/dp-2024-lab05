@@ -23,7 +23,6 @@ public class ProcessDeliveryCommand : ICommand
 
     private bool Deliver(Order order)
     {
-        // todo: добавить ранд
         return true;
     }
 }

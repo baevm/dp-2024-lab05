@@ -17,6 +17,11 @@ static class Storage
 
     private static readonly object _lock = new();
 
+    /// <summary>
+    /// Получить товар со склада
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
     public static ShopItem? GetItem(string name)
     {
         lock (_lock)
