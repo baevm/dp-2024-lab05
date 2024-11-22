@@ -21,6 +21,16 @@ public class Order
     public decimal TotalPrice { get; set; } = 0;
 
     /// <summary>
+    /// Адрес доставки
+    /// </summary>
+    public string? Address { get; set; }
+
+    /// <summary>
+    /// Кредитная карта пользователя
+    /// </summary>
+    public CreditCard? UserCreditCard { get; private set; }
+
+    /// <summary>
     /// Шаг обработки заказа на складе пройден
     /// </summary>
     public bool IsStockChecked { get; set; } = false;
@@ -35,10 +45,12 @@ public class Order
     /// </summary>
     public bool IsDelivered { get; set; } = false;
 
-    public Order(string productName, int quantity)
+    public Order(string productName, int quantity, string? address, CreditCard? creditCard)
     {
         ProductName = productName;
         Quantity = quantity;
+        Address = address;
+        UserCreditCard = creditCard;
     }
 
     public override string ToString()
