@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EshopPatterns", "EshopPatterns\EshopPatterns.csproj", "{B471A021-B75F-4102-952B-BA08C94B61FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EshopPatterns.Test", "EshopPatterns.Test\EshopPatterns.Test.csproj", "{978E61F4-B77E-461E-BFCF-4659D2CA4538}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B471A021-B75F-4102-952B-BA08C94B61FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B471A021-B75F-4102-952B-BA08C94B61FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B471A021-B75F-4102-952B-BA08C94B61FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B471A021-B75F-4102-952B-BA08C94B61FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{978E61F4-B77E-461E-BFCF-4659D2CA4538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{978E61F4-B77E-461E-BFCF-4659D2CA4538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{978E61F4-B77E-461E-BFCF-4659D2CA4538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{978E61F4-B77E-461E-BFCF-4659D2CA4538}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
