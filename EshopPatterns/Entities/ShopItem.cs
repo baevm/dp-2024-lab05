@@ -3,10 +3,10 @@
 /// <summary>
 /// Товар на складе
 /// </summary>
-class ShopItem
+public class ShopItem
 {
-    public decimal Price;
-    public int Count;
+    public decimal Price { get; set; }
+    public int Count { get; set; }
 
     public ShopItem(int count, decimal price)
     {

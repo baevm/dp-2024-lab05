@@ -1,4 +1,4 @@
-﻿using EshopPattern.Commands;
+﻿using EshopPattern.Interfaces;
 using EshopPattern.Entities;
 
 namespace EshopPattern.Handlers;
@@ -13,8 +13,13 @@ public abstract class OrderHandlerBase : IOrderHandler
         _command = command;
     }
 
-    public IOrderHandler? SetNext(IOrderHandler next)
+    public IOrderHandler? SetNext(IOrderHandler? next)
     {
+        if (next == null)
+        {
+            return _nextHandler;
+        }
+
         _nextHandler = next;
         return next;
     }

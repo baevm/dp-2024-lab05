@@ -1,28 +1,28 @@
 ﻿using EshopPattern.Entities;
 
-namespace EshopPattern.Services;
+namespace EshopPattern.Infrastructure;
 
 /// <summary>
 /// Склад товаров
 /// </summary>
-static class Storage
+public class Storage
 {
-    private static Dictionary<string, ShopItem> _inventory = new()
+    private Dictionary<string, ShopItem> _inventory = new()
     {
-        { "iphone", new ShopItem(10, 1500) },
+        { "iphone", new ShopItem(100, 1500) },
         { "monitor", new ShopItem(20, 300) },
         { "keyboard", new ShopItem(5, 20) },
         { "headphones", new ShopItem(3, 50) },
     };
 
-    private static readonly object _lock = new();
+    private readonly object _lock = new();
 
     /// <summary>
     /// Получить товар со склада
     /// </summary>
     /// <param name="name"></param>
     /// <returns></returns>
-    public static ShopItem? GetItem(string name)
+    public ShopItem? GetItem(string name)
     {
         lock (_lock)
         {

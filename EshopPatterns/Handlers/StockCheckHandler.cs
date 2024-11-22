@@ -1,4 +1,5 @@
 ﻿using EshopPattern.Commands;
+using EshopPattern.Interfaces;
 
 namespace EshopPattern.Handlers;
 
@@ -7,7 +8,7 @@ namespace EshopPattern.Handlers;
 /// </summary>
 public class StockCheckHandler : OrderHandlerBase
 {
-    public StockCheckHandler() : base(new ProcessStockCommand())
+    public StockCheckHandler(ICommand command) : base(command)
     {
     }
 }

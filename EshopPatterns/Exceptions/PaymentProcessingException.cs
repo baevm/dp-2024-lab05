@@ -5,7 +5,12 @@
 /// </summary>
 public class PaymentProcessingException : Exception
 {
-    public PaymentProcessingException() : base("Ошибка при проведении платежа")
+    private const string TextMessage = "Ошибка при проведении платежа";
+
+    public PaymentProcessingException() : base(TextMessage)
     {
     }
+
+    public PaymentProcessingException(Exception innerException)
+        : base(TextMessage, innerException) { }
 }

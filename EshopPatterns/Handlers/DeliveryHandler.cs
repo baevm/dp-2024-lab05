@@ -1,4 +1,5 @@
 ﻿using EshopPattern.Commands;
+using EshopPattern.Interfaces;
 
 namespace EshopPattern.Handlers;
 
@@ -7,7 +8,7 @@ namespace EshopPattern.Handlers;
 /// </summary>
 public class DeliveryHandler : OrderHandlerBase
 {
-    public DeliveryHandler() : base(new ProcessDeliveryCommand())
+    public DeliveryHandler(ICommand deliveryCommand) : base(deliveryCommand)
     {
     }
 }
