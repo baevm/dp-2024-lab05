@@ -1,6 +1,6 @@
 ﻿using EshopPattern.Entities;
 
-namespace EshopPattern.Handlers;
+namespace EshopPattern.Interfaces;
 
 /// <summary>
 /// Интерфейс шага обработки заказа

@@ -1,6 +1,6 @@
 ﻿using EshopPattern.Entities;
 
-namespace EshopPattern.Commands;
+namespace EshopPattern.Interfaces;
 
 public interface ICommand
 {

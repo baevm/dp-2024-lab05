@@ -1,5 +1,6 @@
 ﻿using EshopPattern.Entities;
 using EshopPattern.Exceptions;
+using EshopPattern.Interfaces;
 
 namespace EshopPattern.Commands;
 
@@ -23,6 +24,8 @@ public class ProcessDeliveryCommand : ICommand
 
     private bool Deliver(Order order)
     {
+        if (order.Address == null) return false;
+
         return true;
     }
 }

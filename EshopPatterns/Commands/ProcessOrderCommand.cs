@@ -1,11 +1,12 @@
 ﻿using EshopPattern.Entities;
+using EshopPattern.Interfaces;
 
 namespace EshopPattern.Commands;
 
 /// <summary>
 /// Команда обработки заказа
 /// </summary>
-class ProcessOrderCommand : ICommand
+public class ProcessOrderCommand : ICommand
 {
     public void Execute(Order order)
     {

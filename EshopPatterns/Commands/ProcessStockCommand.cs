@@ -1,19 +1,27 @@
 ﻿using EshopPattern.Entities;
 using EshopPattern.Exceptions;
-using EshopPattern.Services;
+using EshopPattern.Infrastructure;
+using EshopPattern.Interfaces;
 
 namespace EshopPattern.Commands;
 
 /// <summary>
 /// Команда проверки товара на складе
 /// </summary>
-class ProcessStockCommand : ICommand
+public class ProcessStockCommand : ICommand
 {
+    private readonly Storage _storage;
+
+    public ProcessStockCommand(Storage storage)
+    {
+        _storage = storage;
+    }
+
     public void Execute(Order order)
     {
         for (int i = 0; i < order.Quantity; i++)
         {
-            var item = Storage.GetItem(order.ProductName);
+            var item = _storage.GetItem(order.ProductName);
 
             if (item == null)
             {
